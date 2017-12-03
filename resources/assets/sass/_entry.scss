@@ -1,0 +1,132 @@
+.content_article {
+  display: flex;
+  flex-direction: column;
+  width: 70%;
+  align-self: center;
+  @include respondTo(mobile) {
+    width: 90%;
+  }
+}
+
+.article {
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+  align-items: center;
+
+  @include headers;
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  &__image {
+    margin: 0 0 .5em 1.4em;
+    width: 45%;
+    position: relative;
+    top: .5em;
+
+    figcaption {
+      width: 100%;
+      font-family: "Cormorant Infant SemiBold", sans-serif;
+      font-size: calc(7em/6);
+      margin-top: .3em;
+      text-align: center;
+    }
+
+
+    img {
+      width: 100%;
+      object-fit: contain;
+    }
+  }
+}
+
+.article:not(:last-child) {
+  margin-bottom: 3rem;
+}
+
+.article__header {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+
+.article__title {
+  font-family: 'Open Sans SemiBold', sans-serif;
+  font-size: 1.5em;
+  color: $orange-color;
+}
+
+.article__content {
+  @include content-style;
+  margin-bottom: 1.5em;
+}
+
+.article__footer {
+  @extend .post-preview_main__footer;
+  width: 95%;
+}
+
+.article__footer:before {
+  @extend .post-preview_main__footer:before;
+  margin-bottom: 1em;
+}
+
+.article__footer__wrapper {
+  @extend .post-preview_main__footer__wrapper;
+  padding: 0 2em 0 6em;
+  @include respondTo(mobile) {
+    padding: 0;
+    justify-content: space-around;
+  }
+}
+
+.article__footer__date {
+  @extend .post-preview_main__date;
+}
+
+.article__footer__views-num:before {
+  @extend .post-preview_main__views-num:before;
+}
+
+.article__footer__views-num {
+  @extend .post-preview_main__views-num;
+  margin-right: 1em;
+}
+
+.article__footer__comments-num {
+  @extend .post-preview_main__comments-num;
+}
+
+.article__footer__date:before {
+  @extend .post-preview_main__date:before;
+}
+
+
+.article__footer__date__value {
+  @extend .post-preview_main__date__value;
+}
+
+.article__footer__views-num__value {
+  @extend .post-preview_main__views-num__value;
+}
+
+.article__footer__comments-num__value {
+  @extend .post-preview_main__comments-num__value;
+}
+
+
+
+.comments_article {
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  align-items: flex-start;
+  width: 90%;
+  margin-bottom: 2em;
+  @include respondTo(mobile) {
+    width: 90%;
+  }
+}

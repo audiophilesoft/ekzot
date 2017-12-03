@@ -1,0 +1,1 @@
+@extends('entries.success')

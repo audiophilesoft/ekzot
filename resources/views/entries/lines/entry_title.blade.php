@@ -1,0 +1,1 @@
+<h1 class="blog-post-title">{{ $entry->title }}</h1>

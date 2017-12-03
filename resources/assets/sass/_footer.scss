@@ -1,0 +1,434 @@
+$footer-min-normal-width: 960px;
+$footer-text-color: $smooth-black-color;
+.footer {
+
+
+  $border-radius: 0.7rem unquote("/") 0.5rem;
+  $bg-icon-margin: (7rem/6);
+
+  display: flex;
+  flex-direction: column;
+  background-color: #fac57d;
+  border-radius: $border-radius;
+  box-shadow: inset 0 0 2px 0 rgba(0, 0, 0, 0.5);
+  margin: 0 1px 1px 1px;
+  color: $footer-text-color;
+
+  a {
+    color: $footer-text-color;
+
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+
+  &__top-line {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    align-content: center;
+    font-style: normal;
+    border-radius: $border-radius;
+    padding: 2rem 6% 1rem 5.5%;
+    @include respondTo($footer-min-normal-width) {
+      flex-wrap: wrap;
+      padding: 1.5rem 5%;
+      justify-content: space-around;
+    }
+    @include respondTo(640px) {
+      justify-content: space-between;
+      padding: 1.5rem 10%;
+    }
+
+    @include respondTo(360px) {
+      justify-content: center;
+    }
+
+  }
+
+  &__name,
+  &__email,
+  &__phone,
+  &__map,
+  &__social {
+    display: flex;
+    flex-grow: 1;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    /* todo: move to inner elements? */
+    white-space: nowrap;
+  }
+
+  &__content-container {
+    display: inline-block;
+    text-align: left;
+    width: min-content;
+    white-space: normal;
+  }
+
+  //todo: possibly remove this (now for MS Edge support)
+  &__name &__content-container,
+  &__phone &__content-container {
+    max-width: 9.3em;
+  }
+
+  &__map {
+    position: relative;
+    left: .5rem;
+    @include respondTo($footer-min-normal-width) {
+      position: initial;
+    }
+  }
+
+  &__map &__content-container {
+    max-width: 7em;
+    font-family: "Roboto Medium", sans-serif;
+    text-transform: uppercase;
+    font-size: 1.2em;
+    color: #285537;
+    cursor: pointer;
+    text-decoration: underline;
+
+
+
+    &:active {
+      cursor: pointer;
+    }
+  }
+
+  &__name {
+    font-family: "Roboto Medium", sans-serif;
+    font-size: (7em/6);
+    flex-grow: .5;
+  }
+
+  &__name:before {
+    @include iconBefore('/images/site_icons/person.svg', 1.5em, 1.5em, .9em)
+  }
+
+  &__email {
+    font-family: "Roboto Medium", sans-serif;
+    font-size: (7em/6);
+    flex-grow: .7;
+  }
+
+  &__email:before {
+    @include iconBefore('/images/site_icons/ic_email_black.svg', calc(10em / 7), calc(8em / 7), $bg-icon-margin)
+  }
+
+  &__phone {
+    font-family: "Roboto Medium", sans-serif;
+    line-height: 130%;
+    font-size: 1.08em;
+    flex-grow: .4;
+  }
+
+  &__phone:before {
+    @include iconBefore('/images/site_icons/ic_phone_black.svg', 1.35em, 1.35em, $bg-icon-margin)
+  }
+  &__map:before {
+    @include iconBefore('/images/site_icons/ic_location_on_black.svg', 7em/6, calc(12em / 7), $bg-icon-margin);
+    cursor: pointer;
+  }
+  &__social {
+    transform: translateY(-3%);
+  }
+
+  &__social-button {
+    width: (17rem/6);
+    height: (17rem/6);
+    display: inline-block;
+  }
+
+  &__social-button:first-child {
+    margin-right: 0.8rem;
+  }
+
+  &__twitter-button:hover > svg > path {
+    fill: #1DA1F2;
+  }
+
+  &__viber-button:hover > svg > path {
+    fill: #7b519d;
+  }
+
+  &__facebook-button:hover > svg > path {
+    fill: #4267B2;
+  }
+
+  @include respondTo($footer-min-normal-width) {
+    &__name,
+    &__email,
+    &__phone,
+    &__map,
+    &__social {
+      padding: 0;
+      margin: 0;
+    }
+
+    &__name,
+    &__email,
+    &__phone {
+      margin: 0 0 1rem 0;
+    }
+
+    &__map,
+    &__social {
+      flex-basis: 45%;
+    }
+  }
+
+  @include respondTo(640px) {
+
+    &__name,
+    &__email,
+    &__phone,
+    &__map {
+      margin: 0 0 1rem 0;
+      flex-basis: 38%;
+      text-align: left;
+      justify-content: flex-start;
+      flex-grow: 0;
+    }
+
+    &__social {
+      flex-grow: 1;
+    }
+  }
+
+  @include respondTo(360px) {
+
+    &__name {
+      // padding-left: 15%; // causes problems in UC
+    }
+
+    &__name,
+    &__email,
+    &__phone {
+      margin: 0 auto 1rem auto;
+      flex-basis: 60%;
+    }
+
+    &__map,
+    &__social {
+      flex-basis: 45%;
+      margin: 0 auto;
+      justify-content: center;
+    }
+  }
+
+  &__bottom-line {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #87c16f;
+    width: 100%;
+    text-align: center;
+    border-radius: $border-radius;
+  }
+}
+
+.copyright {
+  display: flex;
+  font-family: "Cormorant Infant Bold", sans-serif;
+  font-size: 1.1em;
+  //-webkit-text-stroke: 0.02em #000;
+  margin-top: 0.4em;
+  margin-bottom: 0.2em;
+  align-items: center;
+}
+
+.copyright:before {
+  margin-right: 0.5em;
+  margin-left: -0.5em;
+  display: flex;
+  content: "\00a9  ";
+  font-family: sans-serif;
+  font-weight: bolder;
+  -webkit-text-stroke: initial;
+  font-size: 1.15em;
+  transform: translateY(1%);
+}
+
+$address-window-height: 17.5rem;
+$address-window-width: 35rem;
+$address-window-border-radius: 1rem;
+$map-left-position: 2.75rem;
+$map-top-position: 2rem;
+$map-size: 12rem;
+$map-padding: 0.3rem;
+$address-text-padding-right: 1.5rem;
+$address-text-padding-left: calc(#{$map-left-position} + #{$map-size} + #{$address-text-padding-right});
+$address-border-color: #5da338;
+$address-window-top-height: $address-window-height*0.46;
+$address-window-bottom-height: $address-window-height*0.54;
+.address-window {
+  width: $address-window-width;
+  height: $address-window-height;
+  border-radius: $address-window-border-radius;
+  position: absolute;
+  right: -4rem;
+  bottom: 6rem;
+  text-align: left;
+  display: none;
+  @include respondTo($footer-min-normal-width) {
+    position: fixed;
+    right: initial;
+    left: calc(50vw - #{$address-window-width} / 2);
+    bottom: calc(50vh - #{$address-window-height} / 2);
+    z-index: 10;
+  }
+  @include respondTo($address-window-width) {
+    width: 90vw;
+    margin-left: 5vw;
+    height: initial;
+    left: 0;
+    bottom: 3rem;
+  }
+
+  &__close {
+    position: absolute;
+    right: 1rem;
+    top: 0.5rem;
+    z-index: 10;
+    color: #fff;
+    font-size: 1.5rem;
+    cursor: pointer;
+
+    &:before {
+      content: '×';
+    }
+  }
+
+  &__background {
+    background: $window-header-color;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    border-radius: $address-window-border-radius;
+    @include respondTo($address-window-width) {
+      text-align: center;
+    }
+
+    &:after {
+      content: '';
+      border: calc(4rem/3) solid transparent;
+      border-top: calc(4rem/3) solid $address-border-color;
+      position: absolute;
+      bottom: calc(-62rem/15);
+      right: 8rem;
+      transform: scale(1.1, 2.1);
+      @include respondTo($footer-min-normal-width) {
+        display: none;
+      }
+    }
+  }
+
+  &__map {
+    position: absolute;
+    left: $map-left-position;
+    top: calc(#{$address-window-top-height} - #{$map-size} / 2);
+    width: $map-size;
+    height: $map-size;
+    background: #2f5e08;
+    padding: $map-padding;
+    border-radius: 0.2rem;
+    @include respondTo($address-window-width) {
+      position: initial;
+      display: inline-block;
+      margin-bottom: 1rem;
+    }
+
+    &__image {
+      width: calc(#{$map-size} - 2 * #{$map-padding});
+      height: calc(#{$map-size} - 2 * #{$map-padding});
+      border: 0;
+    }
+  }
+
+  &__description {
+    background: $window-color;
+    text-align: left;
+    width: 100%;
+    height: $address-window-bottom-height;
+    border-bottom: 0.4rem solid $address-border-color;
+    color: #fff;
+    white-space: normal;
+    border-radius: 0 0 $address-window-border-radius $address-window-border-radius;
+    padding-left: $address-text-padding-left;
+    padding-top: 1rem;
+    padding-right: 1.5rem;
+    font-family: 'Open Sans Regular', sans-serif;
+    font-size: 1.1em;
+    @include respondTo($address-window-width) {
+      padding: 1rem 1.5rem;
+      height: initial;
+    }
+  }
+
+  &:after {
+    content: '';
+    border: calc(4rem/3) solid transparent;
+    border-top: calc(4rem/3) solid $window-color;
+    position: absolute;
+    bottom: -3.6rem;
+    right: 8rem;
+    transform: scaleY(2);
+    @include respondTo($footer-min-normal-width) {
+      display: none;
+    }
+  }
+}
+
+.address {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  width: 100%;
+  height: $address-window-top-height;
+  color: #fff;
+  font-family: "Cormorant Infant Bold", sans-serif;
+  font-size: calc(5em / 3);
+  padding-bottom: 1.2rem;
+
+  $margin-left: calc(#{$map-left-position} + #{$map-size} + 1.5rem);
+  &__city {
+    font-variant: small-caps;
+    margin-left: $address-text-padding-left;
+  }
+
+  &__street-house {
+    width: 65%;
+    margin-left: $address-text-padding-left;
+  }
+
+
+  @include respondTo($address-window-width) {
+    justify-content: initial;
+    align-items: center;
+    padding-top: 1.7rem;
+    padding-bottom: 0;
+    margin-bottom: 1rem;
+    height: initial;
+
+    &__city,
+    &__street-house {
+      display: inline-block;
+      width: initial;
+      margin: 0;
+    }
+  }
+}
+
+.address-window__show-switcher {
+  position: absolute;
+  width: 0;
+  height: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+.address-window__show-switcher:checked + .address-window {
+  display: initial;
+}

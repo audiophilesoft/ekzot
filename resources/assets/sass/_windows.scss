@@ -1,0 +1,600 @@
+%window__background {
+  position: fixed;
+  left: 0;
+  right: 0;
+  top: 0;
+  bottom: 0;
+  background: $window-background-color;
+  z-index: 9;
+  display: none;
+
+
+  @include respondTo(mobile) {
+    position: absolute;
+  }
+}
+
+.login-window__background {
+  @extend %window__background;
+}
+
+$window__border-radius: 0.8rem;
+%window {
+  position: fixed;
+  top: 6%;
+  background: $window-color;
+  z-index: 10;
+  border-radius: $window__border-radius;
+
+
+  @include respondTo(mobile) {
+    position: relative;
+    top: initial !important;
+    left: initial !important;
+    right: initial !important;
+    bottom: initial !important;
+    max-width: 90%;
+    margin-top: 1rem;
+  }
+}
+
+
+
+
+@mixin fixed_center($width) {
+  width: $width;
+  left: 50%;
+  margin-left: -$width/2;
+
+  @include respondTo(mobile) {
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.login-window {
+  @extend %window;
+  @include fixed_center(21rem);
+  top: 6%;
+  $this: &;
+  &_waiting {
+    @extend #{$this};
+    @include waiting($window__border-radius);
+  }
+}
+
+%window__header {
+  position: relative;
+  text-align: center;
+  background: $window-header-color;
+  border-radius: $window__border-radius $window__border-radius 0 0;
+  font-family: "Roboto Regular", sans-serif;
+}
+
+.login-window__header {
+  @extend %window__header;
+}
+
+%window__title {
+  color: #fff;
+  font-size: 1.5em;
+  padding: 0.5em 0;
+}
+
+.login-window__title {
+  @extend %window__title;
+}
+
+%window__close {
+
+  &:before {
+    content: '\00D7';
+  }
+
+  font-size: 2em;
+  color: #fff;
+  position: absolute;
+  right: 1ex;
+  top: calc(50% - 0.57em);
+}
+
+.login-window__close {
+  @extend %window__close;
+}
+
+%window__input {
+  display: block;
+  height: 2em;
+  $border-radius: .8em;
+  border-radius: .8em;
+  background: #faffbd;
+  border: none;
+  $box-shadow-width: 0.2em;
+  box-shadow: inset 0 -#{$box-shadow-width} 0 0 rgba(0, 0, 0, 0.1);
+  padding: 0 $border-radius $box-shadow-width/4 $border-radius;
+
+  &::placeholder {
+    font-family: "Roboto Regular", sans-serif;
+  }
+}
+
+%window__button {
+
+  background: $orange-color;
+  border-radius: 0;
+  padding: 0.25em 1.1em 0.35em 1.1em;
+  border: 0;
+  color: #fff;
+  font-family: "Open Sans Regular", sans-serif;
+  font-size: 1.3em;
+  text-align: center;
+  display: block;
+  cursor: pointer;
+  margin: 0 auto;
+}
+
+
+
+.login-form {
+  padding: 1.6em 0 1em 0;
+
+  &__email,
+  &__password {
+    @extend %window__input;
+    width: 15em;
+    margin: 0 auto;
+  }
+
+  &__email {
+    margin-bottom: 1.6em;
+  }
+
+  &__password {
+    margin-bottom: 1em;
+  }
+
+  .login-form__remember-line {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+
+  $remember__font-size: (7em / 6);
+  .login-form__remember__label {
+    font-family: "Cormorant Infant Bold";
+    font-size: $remember__font-size;
+    color: white;
+    margin-right: .5em;
+  }
+
+  .login-form__remember__checkbox {
+    display: inline-block;
+    width: $remember__font-size;
+    height: $remember__font-size;
+    position: relative;
+    border-radius: 100%;
+    border: calc(1em / 15) solid rgba(0, 0, 0, 0.1);
+    box-shadow: inset 0 -0.1em 0 0 rgba(0, 0, 0, 0.4),
+    inset 0 0.05em 0 0 rgba(255, 255, 255, 0.3);
+    label {
+      width: 86%;
+      height: 86%;
+      cursor: pointer;
+      position: absolute;
+      left: 7%;
+      top: 7%;
+      background: #b3aaa0;
+      border-radius: 100%;
+      box-shadow: inset 0 -0.1em 0 0 rgba(255, 255, 255, 0.2),
+      inset 0 0.05em 0 0 rgba(0, 0, 0, 0.3);
+    }
+
+    input[type=checkbox] {
+      visibility: hidden;
+      &:checked + label {
+        background: $orange-color;
+      }
+    }
+
+  }
+
+  &__submit {
+    @extend %window__button;
+  }
+}
+
+%window__block {
+  &:not(:first-child) {
+    border-top: 0.1rem solid #8eb677;
+  }
+}
+
+.login-window__bottom {
+  @extend %window__block;
+  text-align: center;
+  padding: 0.7em 0 0.9em 0;
+}
+
+.forgot-password-link {
+  font-family: "Cormorant Infant Bold", sans-serif;
+  color: #fff;
+  text-decoration: underline;
+}
+
+.registration-window__background {
+  @extend %window__background;
+}
+
+$registration-window-width: 31em;
+.registration-window {
+  @extend %window;
+  @include fixed_center($registration-window-width);
+
+  $this: &;
+  &_waiting {
+    @extend #{$this};
+    @include waiting($window__border-radius);
+  }
+}
+
+.registration-window__header {
+  @extend %window__header;
+}
+
+.registration-window__body {
+  padding: 1.1em 0 1.7em 0;
+}
+
+.registration-window__title {
+  @extend %window__title;
+}
+
+.registration-window__close {
+  @extend %window__close;
+}
+
+%window__note {
+  color: #fff;
+}
+
+.registration-form {
+
+  $field-padding-left: 2rem;
+  $field-padding-right: 1.5rem;
+  overflow: hidden;
+
+  &__name-line {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+    padding-left: $field-padding-left;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 1.1rem;
+  }
+
+  &__name {
+    @extend %window__input;
+    flex-basis: 15rem;
+    flex-grow: 1;
+    margin-right: $field-padding-right;
+    margin-bottom: .2rem;
+  }
+
+  %note {
+    flex-basis: 12.5rem;
+    flex-grow: 1;
+    color: #fff;
+    font-family: "Cormorant Infant Medium", sans-serif;
+    font-size: calc(7em / 6);
+    position: relative;
+    left: 1.2ch;
+
+    &:before {
+      content: '*';
+      position: absolute;
+      left: -1.2ch;
+
+    }
+  }
+
+  &__name__note {
+    @extend %note;
+    margin-bottom: .2rem;
+  }
+
+  &__password-line {
+    padding-left: $field-padding-left;
+    display: flex;
+    flex-wrap: wrap;
+    width: 100%;
+    align-items: center;
+    margin-bottom: 1.5rem;
+  }
+
+  &__password__fields {
+    margin-right: $field-padding-right;
+    flex-basis: 15rem;
+    flex-grow: 1;
+    margin-bottom: .2rem;
+  }
+
+  &__password__note {
+    @extend %note;
+    margin-bottom: .2rem;
+  }
+
+  &__password {
+    @extend %window__input;
+    margin-bottom: 1em;
+    width: 100%;
+  }
+
+  &__password-confirm {
+    @extend %window__input;
+    width: 100%;
+  }
+
+
+
+
+
+  &__email-line {
+    margin-left: $field-padding-left;
+    margin-right: $field-padding-right;
+    margin-bottom: 1.3em;
+  }
+
+  &__email {
+    @extend %window__input;
+    width: 100%;
+    max-width: 22rem;
+    flex-grow: 1;
+  }
+
+
+  &__avatar-line {
+    @extend %window__block;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 1em 1em 2.3em;
+  }
+
+  $avatar-upload__preview-size: 8rem;
+
+  &__avatar__preview {
+    background: yellowgreen;
+    max-width: $avatar-upload__preview-size;
+    max-height: $avatar-upload__preview-size;
+    flex-basis: $avatar-upload__preview-size;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: calc(11em / 12);
+    margin-right: 1.5rem;
+
+   img[src=""] {
+      width: $avatar-upload__preview-size;
+      height: $avatar-upload__preview-size;
+      border: calc(1em / 12) solid black;
+      border-radius: calc(11em / 12);
+      background: #f5d597 url("/images/site_icons/user_avatar_default.svg") no-repeat center;
+      background-size: 74%;
+    }
+
+    img:not([src=""]) {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      border: calc(1em / 12) solid black;
+      border-radius: calc(11em / 12);
+    }
+  }
+
+  &__avatar__upload {
+    text-align: center;
+    flex-basis: 18rem;
+    height: $avatar-upload__preview-size;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    &__note {
+      @extend %window__note;
+      text-align: left;
+      margin-top: .8rem;
+      margin-bottom: .6rem;
+      padding-right: 1rem;
+    }
+  }
+
+
+
+  &__avatar__uploader {
+    display: inline-block;
+    position: relative;
+    @extend %window__button;
+    margin: 0;
+    margin-bottom: .4rem;
+
+    &__input {
+      display: none; /* Обязательно скрываем настоящий Input File */
+    }
+
+    &__label {
+      /* Растягиваем label на всю возможную площадь блока .registration-form__avatar__upload */
+      display: block;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      cursor: pointer;
+    }
+
+    &:before {
+      content: 'Выбрать';
+    }
+  }
+
+
+  &__submit-line {
+    @extend %window__block;
+    padding-top: 1.3em;
+
+  }
+
+  &__captcha-container {
+    text-align: center;
+    margin-bottom: 1em;
+
+    @include respondTo(mobile) {
+      transform: scale(0.8);
+    }
+  }
+  .g-recaptcha {
+    display: inline-block;
+  }
+
+
+  &__submit {
+    @extend %window__button;
+    padding: 0.2em 0.8em 0.3em 0.8em;
+  }
+}
+
+.forgot-password-link {
+  font-family: "Cormorant Infant Bold";
+  color: #fff;
+  text-decoration: underline;
+}
+
+
+.request-password-window {
+  @extend %window;
+
+  @include fixed_center(27em);
+  top: 6%;
+  display: none;
+
+  $this: &;
+  &_waiting {
+    @extend #{$this};
+    @include waiting($window__border-radius);
+  }
+}
+
+
+.request-password-window__header {
+  @extend %window__header;
+}
+
+.request-password-window__body {
+  padding: 1.1em 0 1.7em 0;
+}
+
+.request-password-window__title {
+  @extend %window__title;
+}
+
+.request-password-window__close {
+  @extend %window__close;
+}
+
+
+.request-password-window__text {
+  @extend %window__note;
+  width: 21.5em;
+  margin: 0 auto 1em auto;
+}
+
+
+.request-password-form {
+
+  &__email {
+    @extend %window__input;
+
+    flex-shrink: 0;
+    width: 22em;
+    margin: 0 auto 1.3em auto;
+  }
+
+
+  &__submit-line {
+    @extend %window__block;
+    padding-top: 1.3em;
+
+  }
+
+  &__captcha-container {
+    text-align: center;
+    margin-bottom: 1em;
+  }
+  .g-recaptcha {
+    display: inline-block;
+  }
+
+
+  &__submit {
+    @extend %window__button;
+    padding-right: 0.9em !important;
+    padding-left: 0.8em !important;
+  }
+}
+
+
+
+.reset-password-window__background {
+  @extend %window__background;
+}
+
+.reset-password-window {
+  @extend %window;
+  @include fixed_center(20em);
+  top: 6%;
+
+  $this: &;
+  &_waiting {
+    @extend #{$this};
+    @include waiting($window__border-radius);
+  }
+}
+
+
+.reset-password-window__header {
+  @extend %window__header;
+}
+
+.reset-password-window__body {
+  padding: 1.4em 0 1.8em 0;
+}
+
+.reset-password-window__title {
+  @extend %window__title;
+}
+
+.reset-password-window__close {
+  @extend %window__close;
+}
+
+
+
+.reset-password-form {
+
+  &__password,
+  &__password-confirm {
+    @extend %window__input;
+    margin: 0 auto 1em auto;
+    width: 77%;
+  }
+
+  &__password-confirm {
+    margin-bottom: 1.5em;
+  }
+
+  &__submit {
+    @extend %window__button;
+  }
+}

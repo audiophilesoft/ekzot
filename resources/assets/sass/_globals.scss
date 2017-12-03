@@ -1,0 +1,129 @@
+* {
+  box-sizing: border-box;
+}
+
+// todo: ability to change base font size?
+html {
+  background-color: #fff;
+  font-size: $base-font-size;
+  font-family: "Roboto Regular", sans-serif;
+  @include respondTo(wide) {
+    font-size: 1.19vw
+  }
+}
+
+input, textarea {
+  outline: none;
+}
+
+img {
+  max-width: 100%;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  background: $body-bg;
+  position: relative;
+
+  @include respondTo(mobile) {
+    padding-top: 0.96vw;
+  }
+}
+
+body * {
+  flex-direction: initial;
+
+  &:focus, &:active {
+    outline: none;
+  }
+}
+
+svg, img {
+  vertical-align: bottom;
+}
+
+// todo: hover color?
+a {
+  color: #2f5e08;
+  text-decoration: none;
+}
+
+// Reset user-agent styles
+h1, h2, h3, h4 {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  font-weight: normal;
+  font-size: 1em;
+  padding: 0;
+  margin: 0;
+}
+
+
+p {
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+  -webkit-margin-start: 0;
+  -webkit-margin-end: 0;
+  margin: 0;
+  padding: 0;
+}
+
+ul, ol {
+  margin-top: 0;
+  margin-bottom: 0;
+  -webkit-margin-before: 0;
+  -webkit-margin-after: 0;
+
+
+  li {
+    text-indent: 0;
+  }
+}
+
+strong.bold-text {
+  font-weight: normal;
+  font-family: "Roboto Medium", sans-serif;
+}
+
+.to-top {
+  display: none;
+  position: fixed;
+  right: 6%;
+  bottom: 9.5rem;
+  background: url('/images/site_icons/arrow-up.svg') no-repeat;
+  background-size: 100% 100%;
+  width: 3rem;
+  height: 3rem;
+  opacity: 0.6;
+
+  &:hover {
+    cursor: pointer;
+    opacity: 1;
+  }
+}
+
+.loading {
+  pointer-events: none;
+  position: relative;
+
+  &:after {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #fff url('/images/site_icons/loading.svg') center center no-repeat;
+    background-size: contain;
+    border: 0 !important;
+  }
+}
+
+.g-recaptcha {
+  min-width: 304px;
+  min-height: 78px;
+}

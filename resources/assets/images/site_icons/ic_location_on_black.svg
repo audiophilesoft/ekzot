@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   height="24"
+   viewBox="0 0 16.799999 24"
+   width="16.799999"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   sodipodi:docname="ic_location_on_black.svg"
+   style="fill:#252525">
+  <metadata
+     id="metadata12">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs10" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1280"
+     inkscape:window-height="971"
+     id="namedview8"
+     showgrid="false"
+     inkscape:showpageshadow="false"
+     inkscape:zoom="9.8333333"
+     inkscape:cx="12"
+     inkscape:cy="12"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <path
+     d="M 8.3999999,0 C 3.7559999,0 -1.1853027e-7,3.756 -1.1853027e-7,8.4 -1.1853027e-7,14.7 8.3999999,24 8.3999999,24 8.3999999,24 16.8,14.7 16.8,8.4 16.8,3.756 13.044,0 8.3999999,0 z m 0,11.4 c -1.656,0 -3,-1.344 -3,-3 0,-1.656 1.344,-3 3,-3 C 10.056,5.4 11.4,6.744 11.4,8.4 c 0,1.656 -1.344,3 -3.0000001,3 z"
+     id="path4"
+     inkscape:connector-curvature="0" />
+  <path
+     d="M 0,0 H 24 V 24 H 0 z"
+     id="path6"
+     inkscape:connector-curvature="0"
+     style="fill:none" />
+</svg>

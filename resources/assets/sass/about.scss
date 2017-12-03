@@ -1,0 +1,73 @@
+// Variables
+@import "variables";
+// Mixins
+@import "mixins";
+
+html:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  width: 36vw;
+  height: 30vw;
+  background: url(/images/about/blue_stripes.svg) no-repeat;
+  background-size: 100% 100%;
+  @include respondTo($default-width) {
+    display: none;
+  }
+  z-index: -1;
+}
+
+
+.content_about {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  align-self: center;
+  margin-bottom: 1.6rem;
+  margin-top: -1rem;
+  width: 94%;
+}
+
+.about {
+  text-align: center;
+}
+
+.about__title {
+  font-family: "Cormorant Infant Bold", sans-serif;
+  font-size: 2em;
+  margin-bottom: .8em;
+  color: $green-base-color;
+}
+
+.about__text {
+  text-align: justify;
+  line-height: $text-line-height;
+  text-indent: $paragraph-text-indent;
+  width: 43%;
+  @include respondTo(mobile) {
+    width: 90%;
+  }
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+
+$about-bg-height: 37vw;
+$about-bg-move-by: -15vw;
+.about:after {
+  display: block;
+  content: '';
+  width: 100%;
+  background: url('/images/about/background.svg') no-repeat;
+  background-position-y: bottom;
+  background-position-x: 40%;
+  background-size: (854%/9.525); // Original image width / original body width
+  height: $about-bg-height;
+  position: relative;
+  top: $about-bg-move-by;
+  z-index: 0;
+  margin-bottom: $about-bg-move-by;
+  @include respondTo(mobile) {
+    display: none;
+  }
+}

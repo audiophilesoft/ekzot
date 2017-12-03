@@ -1,0 +1,225 @@
+// Variables
+@import "variables";
+// Mixins
+@import "mixins";
+// Breadcrumbs
+@import "breadcrumbs";
+@import "content_index";
+
+.breadcrumbs {
+  display: inline-block;
+}
+
+
+.catalogue {
+  display: flex;
+  flex-direction: column;
+  width: 66%;
+  @include respondTo(smaller) {
+    width: 94%;
+  }
+  margin: 0 auto 2em auto;
+
+  &__title {
+    display: inline-block;
+    font-family: "Open Sans Bold", sans-serif;
+    color: $green-base-color;
+    vertical-align: middle;
+    position: relative;
+    bottom: 0.08em;
+  }
+
+  &__content__management {
+    display: flex;
+    font-size: calc(5em / 6);
+    padding-left: 1.5em;
+    align-items: center;
+    margin-bottom: 1.5em;
+  }
+
+  &__materials-counter {
+    display: flex;
+    margin-right: 2em;
+    align-items: center;
+
+    &__text {
+      display: inline-block;
+      margin-right: 1ch;
+    }
+
+    &__num {
+      display: inline-block;
+      background: #ffbc6c;
+      width: 2rem;
+      height: 2rem;
+      line-height: 2.1rem; //some correction for vertical align
+      font-size: .83em;
+      vertical-align: bottom;
+      text-align: center;
+      border-radius: 100%;
+      font-family:  "Roboto Medium", sans-serif;
+    }
+
+  }
+
+  &__materials-sorter {
+    display: flex;
+    flex-wrap: wrap;
+
+    &__option {
+      display: inline-block;
+      background: #fcddb9;
+      width: 20ch;
+      text-align: center;
+      padding: 0.3em 0;
+      border-radius: 1em;
+      text-decoration: none;
+      color: #000;
+      margin: 0.4rem 0;
+
+      &:not(:last-child) {
+        margin-right: 1em;
+      }
+
+      &:hover {
+        background: #FFECA4;
+      }
+
+      $this: &;
+
+      &_active {
+        @extend #{$this};
+        background: #FFECA4;
+
+        &:after {
+          font-size: 0.9em;
+          margin-left: 0.1em;
+        }
+
+        $this: &;
+
+        &-desc {
+          @extend #{$this};
+
+          &:after {
+            content: '\25BC';
+          }
+        }
+
+        &-asc {
+          @extend #{$this};
+          &:after {
+            content: '\25B2';
+          }
+        }
+      }
+
+    }
+  }
+}
+
+.post-preview_catalogue {
+  @extend .post-preview_main;
+  width: 100%;
+
+  &:nth-last-child(2),
+  &:nth-child(odd) {
+    margin-bottom: (17rem/6);
+    margin-right: 0;
+  }
+
+
+  $this: &;
+  &_imaged {
+    @extend #{$this};
+  }
+
+  &:nth-last-child(1) {
+    margin: 0;
+  }
+
+
+  &__header {
+    @extend .post-preview_main__header;
+
+    $this: &;
+    &_imaged {
+      @extend .post-preview_main__header_imaged;
+      @extend #{$this};
+    }
+  }
+
+  &__title {
+    @extend .post-preview_main__title;
+
+    h2 {
+      font-size: 1.2em;
+    }
+  }
+
+
+  // todo: change lines number and define height as max-height
+  &__content {
+    @extend .post-preview_main__content;
+    //max-height: 9 * $post-preview_main__content__flex-basis / $post-preview_main__content__lines;
+
+  }
+
+
+  &__items {
+    @extend .post-preview_main__items;
+    margin-bottom: 1em;
+    width: 95%;
+    align-self: center;
+  }
+
+  &__content__wrapper {
+    @extend .post-preview_main__content__wrapper;
+    text-indent: $paragraph-text-indent;
+  }
+
+
+  &__content__full-link {
+    @extend .post-preview_main__content__full-link;
+  }
+
+  &__footer {
+    @extend .post-preview_main__footer;
+  }
+
+  &__footer__wrapper {
+    @extend .post-preview_main__footer__wrapper;
+  }
+
+  &__date {
+    @extend .post-preview_main__date;
+  }
+
+  &__date__value {
+    @extend .post-preview_main__date__value;
+  }
+
+  &__comments-num {
+    @extend .post-preview_main__comments-num;
+  }
+
+  &__comments-num__value {
+    @extend .post-preview_main__comments-num__value;
+  }
+
+  &__views-num {
+    @extend .post-preview_main__views-num;
+  }
+
+  &__views-num__value {
+    @extend .post-preview_main__views-num__value;
+  }
+
+  &__more-items {
+    @extend .post-preview_main__more-items;
+  }
+
+  &__image {
+    @extend .post-preview_main__image;
+  }
+}

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   viewBox="0 0 45 45"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.48.3.1 r9886"
+   width="100%"
+   height="100%"
+   sodipodi:docname="facebook-circular-logo.svg"
+   style="fill:#252525">
+  <metadata
+     id="metadata10">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <defs
+     id="defs8" />
+  <sodipodi:namedview
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1"
+     objecttolerance="10"
+     gridtolerance="10"
+     guidetolerance="10"
+     inkscape:pageopacity="0"
+     inkscape:pageshadow="2"
+     inkscape:window-width="1280"
+     inkscape:window-height="971"
+     id="namedview6"
+     showgrid="false"
+     inkscape:zoom="6.9411765"
+     inkscape:cx="17"
+     inkscape:cy="17"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1"
+     inkscape:current-layer="svg2" />
+  <path
+     d="M 22.5,0 C 10.073382,0 0,10.115735 0,22.593971 0,33.785735 8.1119118,43.054412 18.747794,44.849118 V 27.308382 H 13.32 v -6.313235 h 5.426471 v -4.653529 c 0,-5.4 3.286323,-8.3435298 8.084117,-8.3435298 2.297647,0 4.272353,0.1720589 4.846765,0.2475 v 5.6448528 l -3.328677,0.0013 c -2.608676,0 -3.111617,1.244117 -3.111617,3.071911 V 20.9925 h 6.224559 l -0.811324,6.313235 H 25.237059 V 45 C 36.369265,43.639412 45,34.133824 45,22.587353 45,10.115735 34.926618,0 22.5,0 z"
+     id="path4"
+     inkscape:connector-curvature="0"
+     style="fill:#010002" />
+</svg>

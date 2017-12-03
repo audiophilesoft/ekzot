@@ -1,0 +1,1 @@
+<p>На сайте <a href="{{ config('site.address') }}">{{ config('site.name') }}</a> зарегистрирован новый пользователь {{ $user->name }} ({{ $user->email }}).

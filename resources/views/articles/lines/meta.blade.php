@@ -1,0 +1,1 @@
+<p class="blog-post-meta">{{ dateintl_full('medium', $entry->created_at) }} by <a href="#">{{ $entry->user->name }}</a></p>

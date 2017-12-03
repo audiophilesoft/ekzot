@@ -1,0 +1,308 @@
+// Variables
+@import "variables";
+// Mixins
+@import "mixins";
+
+html:before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 33.5vw;
+  height: 21.4vw;
+  background: url(/images/shop/blue_stripes.svg) no-repeat;
+  background-size: 100% 100%;
+  z-index: -1;
+  @include respondTo($default-width) {
+    display: none;
+  }
+}
+
+.content_shop {
+}
+
+.shop {
+  width: 56.4%;
+  margin: 0 auto 2rem auto;
+  @include respondTo(mobile) {
+    width: 90%;
+  }
+
+  a {
+    text-decoration: underline;
+  }
+
+  &__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+  }
+
+  &__header:after {
+    content: '';
+    height: calc(5rem / 12);
+    width: 100%;
+    border-top: double calc(1rem / 12) black;
+    border-bottom: double calc(1rem / 12) black;
+    margin: 1rem 0 2.5rem 0;
+  }
+
+  &__title {
+    font-family: "Cormorant Infant Bold", sans-serif;
+    font-size: 2.5em;
+    flex-basis: 30%;
+    color: $green-base-color;
+    text-align: center;
+    line-height: 1em;
+    margin: 0 0 0 3.1rem;
+    @include respondTo($default-width) {
+      flex-basis: 100%;
+      margin: 0 0 2rem 0;
+    }
+  }
+
+  $shop__preview__image-width: 20rem/3;
+  $shop__preview__image-height: 20rem/3;
+  $shop__preview__image-margin: 1.5rem;
+  $shop__preview__visible-images-num: 3;
+  &__preview-images {
+
+    &__outer-wrapper {
+      overflow: hidden;
+      flex-basis: $shop__preview__visible-images-num * $shop__preview__image-width + ($shop__preview__visible-images-num - 1) * $shop__preview__image-margin;
+      height: $shop__preview__image-height;
+      margin: 0 3.1rem 0 0;
+      border-radius: 1rem;
+      @include respondTo($default-width) {
+        margin: 0 auto;
+      }
+    }
+    width: 100%;
+    height: 100%;
+    padding-bottom: 20px;
+    box-sizing: content-box;
+    overflow-x: auto;
+    overflow-y: hidden;
+    white-space: nowrap;
+    border-radius: 1rem;
+    position: relative;
+
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    > div {
+      position: relative;
+    }
+
+    a {
+      display: inline-block;
+      position: relative;
+      img {
+        height: $shop__preview__image-height;
+        width: $shop__preview__image-width;
+        object-fit: cover;
+        border-radius: 1rem;
+      }
+
+      &:not(:last-child) {
+        margin-right: $shop__preview__image-margin;
+      }
+
+      &:hover:after {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        background: rgba(255, 255, 255, 0.3);
+        border-radius: 1rem;
+      }
+
+    }
+  }
+
+  &__description {
+    width: 90%;
+    line-height: calc(9em / 7);
+    text-align: justify;
+    margin: 0 auto 3em auto;
+    text-indent: 1.5em;
+  }
+
+  &__species:not(:last-child) {
+    margin-bottom: 2em;
+  }
+
+  &__species__header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    width: 100%;
+    border-radius: 1em / 2em;
+    background-color: $light-blue-color;
+    padding: 1.5rem 2.75rem 1.5rem 2.75rem;
+    margin-bottom: 2em;
+  }
+
+  &__species__title {
+    font-family: "Cormorant Infant Bold", sans-serif;
+    font-size: 2em;
+    color: $green-base-color;
+    margin-bottom: 0.7em;
+  }
+
+  $shop__images-border: .5rem solid #fff;
+  &__species__photo__wrapper {
+    text-align: center;
+    margin-bottom: 1rem;
+    max-width: 90%;
+    border: $shop__images-border;
+    border-radius: 0.5em;
+  }
+
+  &__species__photo {
+    max-height: 22em;
+    max-width: 100%;
+  }
+
+  &__species__description {
+    text-align: justify;
+    line-height: $text-line-height;
+  }
+
+  &__variety {
+    position: relative;
+    margin-left: 2em;
+    @include respondTo(mobile) {
+      margin-left: inherit;
+    }
+  }
+
+  &__variety:not(:last-child) {
+    margin-bottom: 1rem;
+  }
+
+  &__variety__title {
+    font-family: "Open Sans Bold", sans-serif;
+    font-size: calc(7em / 6);
+    color: $green-base-color;
+  }
+
+  &__variety__title:not(:last-child) {
+    margin-bottom: .9em;
+  }
+
+  &__variety__title:before {
+    content: '\25CF';
+    display: inline-block;
+    position: absolute;
+    left: -2ch;
+    @include respondTo(mobile) {
+      display: none;
+    }
+  }
+
+  &__variety__description {
+    line-height: $text-line-height;
+    margin-bottom: 0.5em;
+    text-align: justify;
+  }
+
+  &__variety__items {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  $shop__variety__item__height: 29em;
+  &__variety__item {
+    flex-basis: 20em;
+    background-color: $green-base-color;
+    margin: 1rem;
+    border-radius: 1em;
+    @include respondTo(mobile) {
+      flex-basis: 90%;
+      max-width: 20em;
+    }
+  }
+
+  $shop__variety__item__section-height: $shop__variety__item__height * 0.48;
+  $shop__variety__item__photo__top-margin: 1em;
+  $shop__variety__item__photo__overlap-by: 2em;
+  &__variety__item__top {
+    background: $light-blue-color;
+    text-align: center;
+    height: $shop__variety__item__section-height;
+    position: relative;
+    border-radius: 0.7em;
+  }
+
+  &__variety__item__photo-wrapper {
+    display: inline-block;
+    text-align: center;
+    overflow: hidden;
+    position: relative;
+    top: $shop__variety__item__photo__overlap-by - $shop__variety__item__photo__top-margin;
+    max-width: 80%;
+  }
+
+  &__variety__item__photo {
+    height: $shop__variety__item__section-height + $shop__variety__item__photo__overlap-by - $shop__variety__item__photo__top-margin;
+    // todo: not working for Edge.
+    object-fit: cover;
+    border: $shop__images-border;
+    border-radius: 0.5em;
+  }
+
+  &__variety__item__bottom {
+    display: flex;
+    flex-direction: column;
+    font-family: "Roboto Regular", sans-serif;
+    align-items: center;
+    justify-content: center;
+    padding-top: $shop__variety__item__photo__overlap-by;
+    color: #fff;
+    text-align: center;
+    padding-bottom: 2em;
+    height: $shop__variety__item__height * 0.52;
+    flex-grow: 1;
+  }
+
+  &__variety__item__title {
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    flex-grow: 1;
+    margin: 0.5em 0;
+  }
+
+  &__variety__item__description {
+    margin-top: 0.5em;
+    display: inline-block;
+    max-width: 70%;
+    line-height: 1.3em;
+    flex-grow: 1;
+  }
+
+  // todo: autoresize text or add special class for long values
+  &__variety__item__price {
+    display: inline-block;
+    background: $orange-color;
+    font-size: calc(7em / 6);
+    padding: 0.4em 0;
+    width: 38%;
+    border-radius: 0.6em;
+    text-align: center;
+  }
+
+  &__variety__item__note {
+    font-size: calc(5em / 6);
+    flex-grow: 1;
+    margin-bottom: 0.5rem;
+  }
+}

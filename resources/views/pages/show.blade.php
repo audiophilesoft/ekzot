@@ -1,0 +1,2 @@
+@extends('entries.show')
+

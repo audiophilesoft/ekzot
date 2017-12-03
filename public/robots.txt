@@ -1,0 +1,12 @@
+User-agent: *
+Disallow: /register
+Disallow: /login
+Disallow: /logout
+Disallow: /request_password
+Disallow: /reset_password
+Disallow: /confirm_registration
+Disallow: /resend_confirmation
+
+
+Host: http://ekzot.com
+Sitemap: http://ekzot.com/sitemap.xml

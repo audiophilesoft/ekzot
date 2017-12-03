@@ -1,0 +1,3 @@
+<nav class="breadcrumbs">
+    <span class="breadcrumbs__item" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/" itemprop="url"><span itemprop="title"> Главная</span></a></span><span class="breadcrumbs__item" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/articles/" itemprop="url"><span itemprop="title"> Статьи</span></a></span><span class="breadcrumbs__item" itemscope="" itemtype="http://data-vocabulary.org/Breadcrumb"><a href="/articles/{{ $entry->catalogue->url ?? null }}/" itemprop="url"><span itemprop="title">{{ $entry->catalogue->url ?? null }}</span></a></span>
+</nav>

@@ -1,0 +1,213 @@
+$header__margin-bottom: 1.62em;
+
+.header {
+  width: 94%;
+  margin: 0 auto $header__margin-bottom auto;
+
+  @include respondTo(mobile) {
+    margin-bottom: 4vw;
+  }
+
+  &__top-panel {
+    width: 100%;
+    display: flex;
+    position: relative;
+    justify-content: flex-end;
+    align-items: center;
+    margin-bottom: 1.62rem;
+    margin-top: 1rem;
+    @include respondTo(mobile) {
+      margin-bottom: .3rem;
+      flex-wrap: wrap;
+      & > * {
+        flex-grow: 1; // fix for UC browser
+        margin-bottom: 1rem;
+      }
+      justify-content: space-around;
+    }
+  }
+
+  &__site-logo-name-wrapper {
+    width: 100%;
+    white-space: nowrap;
+
+  }
+
+  &__site-logo-wrapper {
+    position: relative;
+    display: inline-block;
+    width: 19%;
+    @include respondTo(mobile) {
+      display: none;
+    }
+  }
+
+  $header__site-logo-width: 8.58vw;
+  $header__site-logo-padding: -1.02vw;
+  &__site-logo {
+    position: absolute;
+    left: 4.5vw;
+    bottom: -2.45vw;
+    width: $header__site-logo-width;
+
+    img {
+      width: 100%;
+    }
+
+  }
+
+  $site-name-padding: (
+          top: 0.12vw,
+          right: 2.16vw,
+          bottom: 0.6vw,
+          left: 2.16vw
+  );
+
+  $header__site-name__font-size: 3vw;
+  &__site-name {
+    display: inline-block;
+    width: 62%;
+    padding: map_get($site-name-padding, top) map_get($site-name-padding, right) map_get($site-name-padding, bottom) map_get($site-name-padding, left);
+    justify-content: center;
+    align-items: center;
+    font-family: "Cormorant Infant Bold", sans-serif;
+    font-size: $header__site-name__font-size;
+    color: $green-base-color;
+    text-align: center;
+    background-color: #FFD099;
+    font-weight: normal;
+    margin: 0 19% 0 0;
+    border-radius: 0.2em/0.3em;
+
+    @include respondTo(mobile) {
+      font-size: 2rem;
+      white-space: normal;
+      width: 100%;
+      margin: 0;
+      padding-top: .1em;
+      padding-bottom: .3em;
+    }
+
+  }
+}
+
+
+.user-links__splitter {
+  color: $green-lighten-link-color;
+  padding: 0 .375em 0 .375em;
+}
+
+.user-links {
+  display: flex;
+  align-items: center;
+  position: relative;
+  right: 15%;
+  transform: translateX(50%);
+  font-family: "Open Sans SemiBold", sans-serif;
+}
+
+
+.user-name {
+  color: $orange-color;
+  margin-right: 0.8ch;
+  font-size: 1.1em;
+
+  &:before {
+    display: inline-block;
+    content: '';
+    height: 1em;
+    width: 1em;
+    background: #dff0cb url("/images/site_icons/user_avatar_default.svg") no-repeat;
+    background-size: 70%;
+    background-position: center center;
+    border-radius: 20%;
+    vertical-align: top;
+    margin-right: 0.5ch;
+    padding-top: 0.1em;
+  }
+}
+
+.logout-link {
+  font-size: .9em;
+  &:before {
+    content: '[';
+  }
+
+
+  &:after {
+    content: ']';
+  }
+}
+
+.user-links__link {
+  color: $orange-color;
+  text-decoration: none;
+  -webkit-text-stroke: .015em currentColor;
+}
+
+.site-search {
+  display: flex;
+  flex-wrap: nowrap;
+  justify-content: center;
+  min-width: 20%;
+  position: relative;
+  right: -1%;
+  white-space: nowrap;
+}
+
+
+
+.site_search__form {
+  display: flex;
+  align-items: center;
+}
+
+.site_search__text-field {
+  display: inline-flex;
+  padding-left: .5ch;
+  border: 0;
+  height: 1.5em;
+  background-color: #dfedea;
+  width: 10em;
+  margin-right: calc(7em / 12);
+}
+
+.site_search__submit-button {
+  display: inline-flex;
+  background: url("/images/site_icons/search.svg") no-repeat;
+  width: calc(5em / 3);
+  height: calc(4em / 3);
+  align-items: center;
+  border: 0;
+  padding: 0;
+  background-size: 100%;
+}
+
+.contacts-link {
+  display: flex;
+  justify-content: center;
+  min-width: 15%;
+  position: relative;
+  right: 0;
+  padding: 0 1rem;
+  text-decoration: none;
+  font-size: calc(7em / 6);
+  font-family: "Open Sans SemiBold", sans-serif;
+  -webkit-text-stroke: .007em currentColor;
+  color: $green-lighten-link-color;
+  @include respondTo(mobile) {
+    padding: 0;
+  }
+}
+
+.user-links,
+.site-search,
+.contacts-link {
+  @include respondTo(mobile) {
+    display: flex;
+    justify-content: center;
+    position: static;
+    transform: initial;
+    min-width: initial;
+  }
+}

@@ -1,0 +1,1 @@
+Редактирование / {{ $entry->title }} / {{ config('site.site_name') }}
